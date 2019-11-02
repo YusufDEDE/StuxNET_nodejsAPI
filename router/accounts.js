@@ -6,15 +6,12 @@ const customerTransactions = require("../Database/query/customerTransactions");
 
 //tokeni verilen kullanıcının hesapları listelendi
 router.post('/', async (req, res) => {
-  const account = await accountTransactions.accounts(req.body)  
-  try {
-    console.log(account.recordset[0].Status);
-      if (account.recordset[0].Status != 0){
-        res.json(account.recordsets[0]); // Kişinin bilgilerini çek listele  
-      }
-  } catch (error) {
-      res.status(500).json({ error: error.toString() });
-  }  
+  const account = await accountTransactions.accounts(req.body)
+  if (account.recordset[0].Status != 0) {
+      res.json(account.recordsets[0]); // Kişinin bilgilerini çek listele  
+  } else {
+    res.json({ status: 404, message: "Not found account!" });    
+  }
 })
 
 //---------------Hesap açma--------------
@@ -22,48 +19,64 @@ router.post('/', async (req, res) => {
 //yeni hesap açarken
 router.post('/newAccount', async (req, res) => {
   const newAccount = await accountTransactions.addAccount(req.body)
-  res.json(newAccount);
+  if (newAccount.recordset[0].Status != 0) {
+    res.json(newAccount);  
+  } else {
+    res.json({ status: 500, message: "Open not account!" })    
+  }
 })
 
 //-------------Para Yatırma--------------
 
 //seçilen hesaba para yükleme 3 parametreli
 router.post('/deposit', async (req, res) => {
-  const newAccount = await accountTransactions.depositAccount(req.body)
-  res.json(newAccount);
+  const deposit = await accountTransactions.depositAccount(req.body)
+  if (deposit.recordset[0].Status != 0) {
+    res.json(deposit);
+  } else {
+    res.json({ status: 500, message: "Not transaction deposit!" });       
+  }
 })
 
 //--------------Para Çekme-----------------
-
 //seçilen hesaptan girilen miktar kadar para çekilecek
 router.post('/withdraw', async (req, res) => {
-  const newAccount = await accountTransactions.depositAccount(req.body)
-  res.json(newAccount);
-  /*if (account.recordsets[0][0].Quantity >= req.body.Quantity) {
-    const quantity = await accountTransactions.withdraw(user.CustomerID, req.body.ekNo, req.body.Quantity)
-    res.json(quantity);
+  const withdraw = await accountTransactions.depositAccount(req.body)
+  if (withdraw.recordset[0].Status != 0) {
+    res.json(withdraw);  
   } else {
-    res.json({ status: 500, message: "insufficient balance!!" })
-  }*/
+    res.json({ status: 500, message: "Open not transaction withdraw!" });
+  }
 })
 
 //----------Hesap silme----------------
-
 router.post('/deleteAccount', async (req, res) => {
-  const newAccount = await accountTransactions.deleteAccount(req.body)
-  res.json(newAccount);
+  const deleteAcc = await accountTransactions.deleteAccount(req.body)
+  if (deleteAcc.recordset[0].Status != 0) {
+    res.json(deleteAcc);  
+  } else {
+    res.json({ status: 500, message: "-Balance- transaction Delete Account!" });
+  }
 })
 
 //----------Virman -----------------
 router.post('/virman', async (req, res) => {
   const virmanAccount = await accountTransactions.virman(req.body)
-  res.json(virmanAccount);
+  if (virmanAccount.recordset[0].Status != 0) {
+    res.json(virmanAccount);  
+  } else {
+    res.json({ status: 500, message: "Not transaction Virman!" });
+  }
 })
 
 //----------EFT--------------------
 router.post('/eft', async (req, res) => {
   const eftAccount = await accountTransactions.eft(req.body)
-  res.json(eftAccount);
+  if (eftAccount.recordset[0].Status != 0) {
+    res.json(eftAccount);
+  } else {
+    res.json({ status: 500, message: "Not transaction Virman!" });
+  }
 })
 
 

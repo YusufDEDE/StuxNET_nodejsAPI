@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const accountTransactions = require("../Database/query/accountTransactions");
-const customerTransactions = require("../Database/query/customerTransactions");
 
 
 //tokeni verilen kullanıcının hesapları listelendi

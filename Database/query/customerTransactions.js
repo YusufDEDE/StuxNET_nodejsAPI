@@ -17,9 +17,9 @@ module.exports.RegisterUser = async (data) => {
 
     const pool = await sql.getConnection();
     try {
-        let result1 = await pool.request()
-            .input('tcNumber', mssql.BigInt, data.tcNumber)
-            .input('pass', mssql.NVarChar, data.pass)
+        let result = await pool.request()
+            .input('tc', mssql.BigInt, data.tc)
+            .input('pw', mssql.NVarChar, data.pw)
             .input('firstName', mssql.VarChar, data.firstName)
             .input('lastName', mssql.VarChar, data.lastName)
             .input('birthDate', mssql.Date, data.date)
@@ -27,7 +27,7 @@ module.exports.RegisterUser = async (data) => {
             .input('phone', mssql.VarChar, data.phone)
             .input('mail', mssql.VarChar, data.mail)
             .execute('SP_register')
-        return { status: 200, message: "success" };
+        return result;
     } catch (error) {
         return { status: 404, message: error.originalError.info.message };
     }
@@ -41,7 +41,7 @@ module.exports.LoginUser = async (data) => {
             .input('pw', mssql.NVarChar, data.pw)
             .execute('SP_login')
             console.log("SP_login log => ", result);
-            return { status:200, message: "access granted!"};
+            return result;
     } catch (error) {
         return { status:404, message: error.originalError.info.message };
     }
@@ -59,7 +59,7 @@ module.exports.UpdateUser = async (data) => {
             .input('phone', mssql.VarChar, data.phone)
             .input('mail', mssql.VarChar, data.mail)
             .execute('SP_update_information')
-        return { status: 200, message: "success" };
+        return result;
     } catch (error) {
         return { status: 404, message: error.originalError.info.message };
     }

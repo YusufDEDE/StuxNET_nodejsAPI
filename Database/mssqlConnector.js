@@ -3,9 +3,9 @@ var pool = null;
 
 const config =
 {
-    "user": 'yusuf', //değiştir
-    "password": '123456', //değiştir
-    "server": 'localhost', //localhost
+    "user": 'stuxnet', //değiştir
+    "password": 'stuxnet258456', //değiştir
+    "server": '35.223.139.123', //localhost
     "database": 'dbBankApp', 
     "port": 1433,    //1433
     "dialect": "mssql",

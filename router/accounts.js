@@ -6,8 +6,15 @@ const customerTransactions = require("../Database/query/customerTransactions");
 
 //tokeni verilen kullanıcının hesapları listelendi
 router.post('/', async (req, res) => {
-  const account = await accountTransactions.accounts(req.body)
-  res.json(account.recordsets[0]); // Kişinin bilgilerini çek listele
+  const account = await accountTransactions.accounts(req.body)  
+  try {
+    console.log(account.recordset[0].Status);
+      if (account.recordset[0].Status != 0){
+        res.json(account.recordsets[0]); // Kişinin bilgilerini çek listele  
+      }
+  } catch (error) {
+      res.status(500).json({ error: error.toString() });
+  }  
 })
 
 //---------------Hesap açma--------------

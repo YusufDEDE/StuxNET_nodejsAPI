@@ -41,10 +41,11 @@ http://localhost:3000/api/customer/updateUser -> POST
 RES
 ```json
 {
-	"tc": 25068115299,
+    "tc": 25068115299,
+    "pw":"123123",
 	"firstName": "John",
 	"lastName" : "Wick",
-	"birthdate": 19640903,
+	"birthDate": "19.10.1996",
 	"address":"NewYork City - GALAXY",
 	"phone":"1 254 000 3215",
 	"mail": "johnwiick@continental.uk"

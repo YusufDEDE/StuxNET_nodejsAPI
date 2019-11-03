@@ -23,8 +23,8 @@ app.set('api_key',jwtConfig.api_key);
 
 app.use('/',auth);  //login register kısımları
 app.use('/api/',verifyToken) //gelen token ayrıştırma
-app.use('/customer',customers); //müşteri işlemleri (bilgi güncelleme, aktiflik kapatma)
-app.use('/account',account); //hesap işlemleri( hesap açma, para çekme/yükleme, listeleme, silme)
+app.use('/api/customer',customers); //müşteri işlemleri (bilgi güncelleme, aktiflik kapatma)
+app.use('/api/account',account); //hesap işlemleri( hesap açma, para çekme/yükleme, listeleme, silme)
 
 
 app.listen(port, () => {

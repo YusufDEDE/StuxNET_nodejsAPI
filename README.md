@@ -168,6 +168,7 @@ REQ
 	"additNo":"1005",
 	"withdrawal":"36.3"
 }
+```
 
 RES
 ```json

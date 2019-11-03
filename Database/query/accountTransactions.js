@@ -1,7 +1,6 @@
 const sql = require("../mssqlConnector")
 const mssql = require('mssql');
 
-//Kişinin Hesapları
 module.exports.accounts = async (data) => {
     const pool = await sql.getConnection();
     try {
@@ -14,7 +13,6 @@ module.exports.accounts = async (data) => {
     }
 }
 
-//Yeni hesap açılırken
 module.exports.addAccount = async (data) => {
     const pool = await sql.getConnection();
     try {
@@ -27,14 +25,14 @@ module.exports.addAccount = async (data) => {
     }
 }
 
-//Seçilen hesaba para yatırma
+
 module.exports.depositAccount = async (data) => {
     const pool = await sql.getConnection();
     try {
         let result = await pool.request()
             .input('tc', mssql.BigInt, data.tc)
             .input('additNo', mssql.Int, data.additNo)
-            .input('deposit', mssql.Money, data.deposit)//cevhere ekNo sor
+            .input('deposit', mssql.Money, data.deposit)
             .execute('SP_deposit_into_acc')
         return result;
     } catch (error) {
@@ -42,7 +40,6 @@ module.exports.depositAccount = async (data) => {
     }
 }
 
-// Seçilen hesaptan para çekme
 module.exports.withdraw = async (data) => {
     const pool = await sql.getConnection();
     try {
@@ -58,7 +55,6 @@ module.exports.withdraw = async (data) => {
 }
 
 
-//Seçilen Hesabın Aktiflik Durumu Düzenlenecek
 module.exports.deleteAccount = async (data) => {
 
     const pool = await sql.getConnection();
@@ -66,7 +62,7 @@ module.exports.deleteAccount = async (data) => {
         let result = await pool.request()
             .input('tc', mssql.BigInt, data.tc)
             .input('additNo', mssql.Int, data.additNo)
-            .execute('SP_remove_account') // buraya müşterinin seçilen hesabının pasif yapılma prosedürü yazılmalı
+            .execute('SP_remove_account')
         return result;
     } catch (error) {
         return { status: 404, message: error.originalError.info.message };

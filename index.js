@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //middleware
-//const isAuthenticated=require('./middleware/isAuthenticated');
 const verifyToken=require('./middleware/verifyToken');
 
 //jwtConfig
@@ -21,10 +20,10 @@ app.set('api_key',jwtConfig.api_key);
 
 
 
-app.use('/',auth);  //login register kısımları
-app.use('/api/',verifyToken) //gelen token ayrıştırma
-app.use('/api/customer',customers); //müşteri işlemleri (bilgi güncelleme, aktiflik kapatma)
-app.use('/api/account',account); //hesap işlemleri( hesap açma, para çekme/yükleme, listeleme, silme)
+app.use('/',auth);
+app.use('/api/',verifyToken) 
+app.use('/api/customer',customers);
+app.use('/api/account',account);
 
 
 app.listen(port, () => {

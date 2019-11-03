@@ -3,18 +3,15 @@ var pool = null;
 
 const config =
 {
-    "user": 'stuxnet', //değiştir
-    "password": 'stuxnet258456', //değiştir
-    "server": '35.223.139.123', //localhost
+    "user": 'stuxnet',
+    "password": 'stuxnet258456',
+    "server": '35.223.139.123', 
     "database": 'dbBankApp', 
-    "port": 1433,    //1433
+    "port": 1433, 
     "dialect": "mssql",
-    /*"dialectOptions": {
-        "instanceName": "DESKTOP-INCJ5DT" //serverName
-    }*/
 };
 
-module.exports.getConnection = async () => { //singleton
+module.exports.getConnection = async () => {
     try {
         if (pool) {
             console.log('db connected');
@@ -42,6 +39,5 @@ module.exports.stopConnection = async () => {
 
 
 sql.on('error', err => {
-    // ... error handler
     console.log(err)
 })

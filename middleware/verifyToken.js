@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
                     message:'Failed to authentication token.'
                 })
             }else{
-                req.decode=decoded, //payload kısmını alıyor
+                req.decode=decoded,
                 next();
             }
         });

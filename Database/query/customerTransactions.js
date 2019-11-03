@@ -50,8 +50,9 @@ module.exports.LoginUser = async (data) => {
 module.exports.UpdateUser = async (data) => {
     const pool = await sql.getConnection();
     try {
-        let result1 = await pool.request()
+        let result = await pool.request()
             .input('tc', mssql.BigInt, data.tc)
+            .input('pw', mssql,NVarChar, data.pw)
             .input('firstName', mssql.VarChar, data.firstName)
             .input('lastName', mssql.VarChar, data.lastName)
             .input('birthDate', mssql.Date, data.date)

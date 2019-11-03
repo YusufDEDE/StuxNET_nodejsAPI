@@ -34,7 +34,7 @@ router.post('/deposit', async (req, res) => {
 
 
 router.post('/withdraw', async (req, res) => {
-  const withdraw = await accountTransactions.depositAccount(req.body)
+  const withdraw = await accountTransactions.withdrawAccount(req.body)
   if (withdraw.recordset[0].Status != 0) {
     res.json(withdraw);  
   } else {

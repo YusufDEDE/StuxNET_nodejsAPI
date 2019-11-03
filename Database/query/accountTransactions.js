@@ -40,13 +40,13 @@ module.exports.depositAccount = async (data) => {
     }
 }
 
-module.exports.withdraw = async (data) => {
+module.exports.withdrawAccount = async (data) => {
     const pool = await sql.getConnection();
     try {
         let result = await pool.request()
             .input('tc', mssql.BigInt, data.tc)
             .input('additNo', mssql.Int, data.additNo)
-            .input('withdrawal', mssql.Money, data.deposit)           
+            .input('withdrawal', mssql.Money, data.withdrawal)           
             .execute('SP_withdrawal_from_acc') 
         return result;
     } catch (error) {

@@ -326,3 +326,80 @@ RES
     }
 ]
 ```
+http://localhost:3000/api/account/listofmoneytransfers -> POST
+===================================
+REQ
+```json
+{
+	"tc":11111111111
+}
+```
+
+RES
+```json
+[
+     [
+            {
+                "activityID": 1,
+                "tcNumber": "11111111111",
+                "SENDER": "10000000 — 1001",
+                "RECIPIENT": "10000000 — 1002",
+                "PAY": "50.00 TRY",
+                "ACTIVITY": "VIRMAN"
+            },
+            {
+                "activityID": 2,
+                "tcNumber": "11111111111",
+                "SENDER": "10000000 — 1001",
+                "RECIPIENT": "10000002 — 1002",
+                "PAY": "50.00 TRY",
+                "ACTIVITY": "HAVALE"
+            },
+            {
+                "activityID": 4,
+                "tcNumber": "11111111111",
+                "SENDER": "10000000 — 1002",
+                "RECIPIENT": "10000000 — 1003",
+                "PAY": "50.00 TRY",
+                "ACTIVITY": "VIRMAN"
+            },
+            {
+                "activityID": 6,
+                "tcNumber": "11111111111",
+                "SENDER": "10000000 — 1003",
+                "RECIPIENT": "10000002 — 1002",
+                "PAY": "100.00 TRY",
+                "ACTIVITY": "HAVALE"
+            }
+        ],
+        [
+            {
+                "Status": 1
+            }
+        ]
+]
+```
+http://localhost:3000/api/account/popupmoneytransfer -> POST
+===============================
+REQ
+```json
+{
+	"actID":1
+}
+```
+
+RES
+```json
+[
+    {
+        "activityID": 1,
+        "SENDER": "10000000 — 1001",
+        "RECIPIENT": "10000000 — 1002",
+        "PAY": "50.00 TRY",
+        "DATE": "20.10.2019",
+        "TIME": "02:36",
+        "ACTIVITY": "VIRMAN",
+        "PLATFORM": "MOBIL"
+    }
+]
+```

@@ -41,14 +41,14 @@ http://localhost:3000/api/customer/updateUser -> POST
 RES
 ```json
 {
-    "tc": 25068115299,
-    "pw":"123123",
-	"firstName": "John",
-	"lastName" : "Wick",
-	"birthDate": "19.10.1996",
-	"address":"NewYork City - GALAXY",
-	"phone":"1 254 000 3215",
-	"mail": "johnwiick@continental.uk"
+    "tc": 11111111114,
+    "pw": "stuxnet1223",
+    "firstName": "JOHN",
+    "lastName": "WICK",
+    "birthDate": "1990-03-05",
+    "address": "NewYork City",
+    "phone": "1 254 000 3",
+    "mail": "johnwick@continental.uk"
 }
 ```
 http://localhost:3000/api/customer/updateUserList -> POST

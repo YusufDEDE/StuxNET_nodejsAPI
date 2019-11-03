@@ -9,6 +9,7 @@ module.exports.payment = async (data) => {
             .input('additNo', mssql.Int, data.additNo)
             .input('billID', mssql.Int, data.billID)
             .input('pay',mssql.Money, data.pay)
+            .input('area', mssql.Int, data.area)
             .execute('SP_payment')
         return result;
     } catch (error) {

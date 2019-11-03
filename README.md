@@ -237,7 +237,7 @@ RES
 ```
 
 http://localhost:3000/api/account/accTransactions -> POST
-
+==============================
 REQ
 ```json
 {
@@ -306,6 +306,7 @@ RES
 ```
 
 http://localhost:3000/api/payment -> POST
+============================== 
 
 REQ
 ```json

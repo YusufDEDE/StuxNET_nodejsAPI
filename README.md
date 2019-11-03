@@ -403,3 +403,81 @@ RES
     }
 ]
 ```
+
+http://localhost:3000/api/payment/listofpaymenttransactions -> POST
+====================================
+
+REQ
+```json
+{
+	"tc": 11111111111
+}
+```
+
+RES
+```json
+[
+    {
+        "transID": 1,
+        "accNo": "10000000",
+        "additionalNo": 1001,
+        "AccountNumber": "10000000 — 1001",
+        "BillNumber": 1,
+        "Payment": "55.60 TRY"
+    },
+    {
+        "transID": 4,
+        "accNo": "10000000",
+        "additionalNo": 1001,
+        "AccountNumber": "10000000 — 1001",
+        "BillNumber": 3,
+        "Payment": "25.60 TRY"
+    },
+    {
+        "transID": 5,
+        "accNo": "10000000",
+        "additionalNo": 1001,
+        "AccountNumber": "10000000 — 1001",
+        "BillNumber": 23,
+        "Payment": "42.40 TRY"
+    },
+    {
+        "transID": 11,
+        "accNo": "10000000",
+        "additionalNo": 1001,
+        "AccountNumber": "10000000 — 1001",
+        "BillNumber": 27,
+        "Payment": "15.70 TRY"
+    },
+    {
+        "transID": 12,
+        "accNo": "10000000",
+        "additionalNo": 1001,
+        "AccountNumber": "10000000 — 1001",
+        "BillNumber": 29,
+        "Payment": "15.30 TRY"
+    }
+]
+```
+
+http://localhost:3000/api/payment/popuppaymenttransaction -> POST
+========================================
+
+REQ
+```json
+{
+	"transID":1
+}
+```
+
+RES
+```json
+{
+    "transID": 1,
+    "SENDER": "10000000 — 1001",
+    "PAY": "55.60 TRY",
+    "DATE": "02.11.2019",
+    "TIME": "19:45",
+    "PLATFORM": "MOBIL"
+}
+```

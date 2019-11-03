@@ -36,7 +36,7 @@ RES
 }
 ```
 
-http://localhost:3000/customer/updateUser -> POST
+http://localhost:3000/api/customer/updateUser -> POST
 =========================================
 RES
 ```json
@@ -50,7 +50,7 @@ RES
 	"mail": "johnwiick@continental.uk"
 }
 ```
-http://localhost:3000/customer/updateUserList -> POST
+http://localhost:3000/api/customer/updateUserList -> POST
 =============================================
 REQ
 ```json
@@ -60,7 +60,7 @@ REQ
 ```
 
 
-http://localhost:3000/account/ -> POST
+http://localhost:3000/api/account/ -> POST
 ==============================
 REQ
 ```json
@@ -105,7 +105,7 @@ RES
 ]
 ```
 
-http://localhost:3000/account/newAccount -> POST
+http://localhost:3000/api/account/newAccount -> POST
 ===========================================
 REQ
 ```json
@@ -122,7 +122,7 @@ RES
 }
 ```
 
-http://localhost:3000/account/deleteAccount -> POST
+http://localhost:3000/api/account/deleteAccount -> POST
 ===========================================
 REQ
 ```json
@@ -140,7 +140,7 @@ RES
 }
 ```
 
-http://localhost:3000/account/deposit -> POST
+http://localhost:3000/api/account/deposit -> POST
 =====================================
 REQ
 ```json
@@ -159,7 +159,7 @@ RES
 }
 ```
 
-http://localhost:3000/account/withdraw -> POST
+http://localhost:3000/api/account/withdraw -> POST
 ======================================
 REQ
 ```json
@@ -178,7 +178,7 @@ RES
 }
 ```
 
-http://localhost:3000/account/virman -> POST
+http://localhost:3000/api/account/virman -> POST
 =====================================
 REQ
 ```json
@@ -199,7 +199,7 @@ RES
 ```
 
 
-http://localhost:3000/account/eft -> POST
+http://localhost:3000/api/account/eft -> POST
 =================================
 REQ
 ```json

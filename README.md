@@ -5,8 +5,8 @@ Node.js api ye react-native tarafından bağlanmak için kendi local adresin(192
 http://localhost:3000/register -> POST
 ============================== 
 {
-	"tcNumber": 25068145299,
-	"pass": "stuxnet123",
+	"tc": 25068145299,
+	"pw": "stuxnet123",
 	"firstName": "John",
 	"lastName" : "Wick",
 	"birthdate": 19640903,
@@ -137,7 +137,7 @@ REQ
 {
 	"tc": 25068115299,
 	"additNo":"1005",
-	"deposit":"36.3"
+	"withdrawal":"36.3"
 }
 
 RES
@@ -174,7 +174,9 @@ REQ
 }
 
 RES
+```json
 {
     "status": 200,
     "message": "success"
 }
+```

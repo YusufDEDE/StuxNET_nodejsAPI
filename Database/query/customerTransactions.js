@@ -40,7 +40,6 @@ module.exports.LoginUser = async (data) => {
             .input('tc', mssql.BigInt, data.tc)
             .input('pw', mssql.NVarChar, data.pw)
             .execute('SP_login')
-            console.log("SP_login log => ", result);
             return result;
     } catch (error) {
         return { status:404, message: error.originalError.info.message };

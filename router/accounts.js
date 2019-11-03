@@ -67,7 +67,16 @@ router.post('/eft', async (req, res) => {
   if (eftAccount.recordset[0].Status != 0) {
     res.json(eftAccount);
   } else {
-    res.json({ status: 500, message: "Not transaction Virman!" });
+    res.json({ status: 500, message: "Not transaction EFT!" });
+  }
+})
+
+router.post('/accTransactions', async(req,res) => {
+  const accTransactions = await accountTransactions.accTransactions(req.body)
+  if (accTransactions.recordset[0] != 0) {
+    res.json(accTransactions);
+  } else {
+    res.json({ status: 500, message: "Account transaction not found !!" })
   }
 })
 

@@ -100,3 +100,14 @@ module.exports.eft = async (data) => {
     }
 }
 
+module.exports.accTransactions = async (data) => {
+    const pool = await sql.getConnection();
+    try {
+        let result = await pool.request()
+            .input('tc', mssql.BigInt, data.tc)
+            .execute('SP_list_of_acc_transactions')
+        return result;
+    } catch (error) {
+        return { status: 404, message: error.originalError.info.message }
+    }
+}

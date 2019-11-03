@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const account = require('./router/accounts');
 const auth = require('./router/auth');
 const customers = require('./router/customers');
+const payment = require('./router/payment');
 const port = process.env.PORT||3000
 var cors = require('cors');
 const app = express()
@@ -24,6 +25,7 @@ app.use('/',auth);
 app.use('/api/',verifyToken) 
 app.use('/api/customer',customers);
 app.use('/api/account',account);
+app.use('/api/payment',payment);
 
 
 app.listen(port, () => {

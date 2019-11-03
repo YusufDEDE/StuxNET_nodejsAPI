@@ -111,3 +111,27 @@ module.exports.accTransactions = async (data) => {
         return { status: 404, message: error.originalError.info.message }
     }
 }
+
+module.exports.listofMoneyTransfers = async (data) => {
+    const pool = await sql.getConnection();
+    try {
+        let result = await pool.request()
+            .input('tc', mssql.BigInt, data.tc)
+            .execute('SP_list_of_money_transfers')
+        return result; 
+    } catch (error) {
+        return { status: 404, message: error.originalError.info.message }
+    }
+}
+
+module.exports.popupMoneyTransfer = async (data) => {
+    const pool = await sql.getConnection();
+    try {
+        let result = await pool.request()
+            .input('actID', mssql.Int, data.actID)
+            .execute('SP_popup_money_transfer')
+        return result;
+    } catch (error) {
+        return { status: 404, message: error.originalError.info.message }   
+    }
+}

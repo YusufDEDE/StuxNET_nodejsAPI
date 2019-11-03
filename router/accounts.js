@@ -80,5 +80,23 @@ router.post('/accTransactions', async(req,res) => {
   }
 })
 
+router.post('/listofmoneytransfers', async(req, res) => {
+  const listofMoneyTransfers = await accountTransactions.listofMoneyTransfers(req.body)
+  if (listofMoneyTransfers.recordset[0] != 0) {
+    res.json(listofMoneyTransfers);
+  } else {
+    res.json({ status: 404, message: "Transfers not found !" })
+  }
+})
+
+router.post('/popupmoneytransfer', async(req, res) => {
+  const popUpMoneyTransfer = await accountTransactions.popupMoneyTransfer(req.body)
+  if (popUpMoneyTransfer.recordset[0] != 0) {
+    res.json(popUpMoneyTransfer.recordsets[0]);
+  } else {
+    res.json({ status: 500, message: "Transfer not found !" })
+  }
+})
+
 
 module.exports = router;

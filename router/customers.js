@@ -4,9 +4,9 @@ const customerTransactions = require("../Database/query/customerTransactions");
 
 
 router.post('/updateUser', async (req, res) => {
-    const response = await customerTransactions.UpdateUser(req.body)
-    if (response.recordset[0].Status != 0) {
-        res.json(response);    
+    const updateUser = await customerTransactions.UpdateUser(req.body);
+    if (updateUser.recordset[0].Status != 0) {
+        res.json(updateUser);    
     } else {
         res.json({ status: 500, message: "Not transaction update user!" });
     }

@@ -7,14 +7,14 @@ http://localhost:3000/register -> POST
 REQ
 ```json
 {
-	"tc": 25068145299,
-	"pw": "stuxnet123",
-	"firstName": "John",
-	"lastName" : "Wick",
-	"birthdate": 19640903,
-	"address":"NewYork City",
-	"phone":"1 254 000 3215",
-	"mail": "johnwick@continental.uk"
+    "tc": 11111111114,
+    "pw": "stuxnet1223",
+    "firstName": "JOHN",
+    "lastName": "WICK",
+    "birthDate": "1990-03-05",
+    "address": "NewYork City",
+    "phone": "1 254 000 3",
+    "mail": "johnwick@continental.uk"
 }
 ```
 

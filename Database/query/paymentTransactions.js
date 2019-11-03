@@ -15,3 +15,27 @@ module.exports.payment = async (data) => {
         return { status: 404, message: error.originalError.info.message };
     }
 }
+
+module.exports.listofPaymentTransactions = async (data) => {
+    const pool = await sql.getConnection();
+    try {
+        let result = await pool.request()
+            .input('tc', mssql.BigInt, data.tc)
+            .execute('SP_list_of_payment_transactions')
+        return result;
+    } catch (error) {
+        return { status: 404, message: error.originalError.info.message };
+    }
+}
+
+module.exports.popupPaymentTransactions = async (data) => {
+    const pool = await sql.getConnection();
+    try {
+        let result = await pool.request()
+            .input('transID', mssql.Int, data.transID)
+            .execute('SP_popup_payment_transaction')
+        return result;
+    } catch (error) {
+        return { status: 404, message: error.originalError.info.message };
+    }
+}

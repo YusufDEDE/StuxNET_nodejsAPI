@@ -3,16 +3,12 @@ var pool = null;
 
 const config =
 {
-    "driver": "msnodesqlv8",
-    "user": "stuxnet",
-    "password": "Stux258456",
-    "server": "stuxnet-sql.database.windows.net",
+    "user": 'stuxnet',
+    "password": 'stuxnet258456',
+    "server": '35.223.139.123', 
+    "database": 'dbBankApp', 
+    "port": 1433, 
     "dialect": "mssql",
-    "database": "BankApp",
-    "options": {
-        "trustedConnection": true,
-        "encrypt": true,    
-    }
 };
 
 module.exports.getConnection = async () => {

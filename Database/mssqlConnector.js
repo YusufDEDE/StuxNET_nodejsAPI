@@ -4,8 +4,8 @@ var pool = null;
 const config =
 {
     "user": 'stuxnet',
-    "password": 'stuxnet258456',
-    "server": '35.223.139.123', 
+    "password": 'Stux258456',
+    "server": 'stuxnet-sql.database.windows.net', 
     "database": 'dbBankApp', 
     "port": 1433, 
     "dialect": "mssql",

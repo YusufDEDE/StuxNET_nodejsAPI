@@ -9,6 +9,7 @@ const config =
     "dialect": "mssql",
     "database": "BankApp",
     "options": {
+        "trustedConnection": true,
         "encrypt": true,    
     }
 };

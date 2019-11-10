@@ -3,13 +3,13 @@ var pool = null;
 
 const config =
 {
-    "user": "stuxnet@stuxnet-sql.database.windows.net",
+    "user": "stuxnet",
     "password": "Stux258456",
     "server": "stuxnet-sql.database.windows.net",
     "dialect": "mssql",
+    "database": "BankApp",
     "options": {
-        "encrypt": true,
-        "database": "dbBankApp"
+        "encrypt": true,    
     }
 };
 

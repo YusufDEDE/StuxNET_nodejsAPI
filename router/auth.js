@@ -17,6 +17,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const response = await customerTransactions.LoginUser(req.body)
+    console.log(response);
     if (response.recordset[0].Status != 0) {
         const payload = { tc: response.tc };
         const token = jwt.sign(payload, req.app.get('api_key'), { expiresIn: 720 });

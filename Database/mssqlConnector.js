@@ -3,6 +3,7 @@ var pool = null;
 
 const config =
 {
+    "driver": "msnodesqlv8",
     "user": "stuxnet",
     "password": "Stux258456",
     "server": "stuxnet-sql.database.windows.net",

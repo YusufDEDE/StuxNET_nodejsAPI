@@ -3,14 +3,12 @@ var pool = null;
 
 const config =
 {
-    "user": "stuxnet@stuxnet-sql.database.windows.net",
-    "password": "stuX258456",
-    "server": "stuxnet-sql.database.windows.net",
+    "user": 'stuxnet',
+    "password": 'stuxnet258456',
+    "server": '34.69.224.215', 
+    "database": 'dbBankApp', 
+    "port": 1433, 
     "dialect": "mssql",
-    "database": "BankApp",
-    "options": {
-        "encrypt": true,
-    }
 };
 
 module.exports.getConnection = async () => {
